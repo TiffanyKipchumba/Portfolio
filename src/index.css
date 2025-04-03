@@ -1,13 +1,253 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* index.css */
+
+/* Global Box-sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Root Variables for colors and spacing */
+:root {
+  --color-dark: #112125;
+  --color-medium: #367074;
+  --color-light: #94DCD2;
+  --color-deep: #2B3D2D;
+  --color-primary: #5BC5CF;
+  --color-secondary: #306761;
+
+  /* Spacing Variables */
+  --space-small: 1rem;
+  --space-medium: 2rem;
+  --space-large: 4rem;
+}
+
+/* Global styles */
+body {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero Section */
+.hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* Main content */
+.main-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: var(--space-large) var(--space-medium);
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--color-light);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: var(--space-small);
+  color: var(--color-medium);
+}
+
+p {
+  margin-top: var(--space-small);
+  font-size: 1.125rem;
+  color: var(--color-medium);
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-small);
+  margin-top: var(--space-light);
+}
+
+.social-icons a {
+  font-size: 2rem;
+  color: var(--color-light);
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--color-medium);
+}
+
+/* Section Styles */
+.section {
+  padding: var(--space-large);
+  text-align: center;
+}
+
+.about {
+  font-size: 1rem;
+  background-color: var(--color-dark);
+  color: #94DCD2;
+}
+
+.story {
+  font-size: 1rem;
+  color: #94DCD2;
+  background-color: var(--color-medium);
+}
+
+.skills {
+  background-color: var(--color-medium);
+}
+
+.projects {
+  background-color: var(--color-medium);
+  color: var(--color-dark);
+}
+
+.contact {
+  background-color: var(--color-deep);
+}
+
+/* Skill Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-small);
+  justify-content: center;
+  margin-top: var(--space-medium);
+}
+
+.skills-grid h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* Updated CSS for Projects Grid and Outside Work Grid */
+
+/* Projects Grid - Single Row */
+.projects-grid {
+  display: grid;
+  grid-auto-flow: column; /* Forces items into a single row */
+  grid-auto-columns: minmax(250px, 1fr); /* Ensures proper sizing */
+  gap: var(--space-medium); /* Spaces between columns */
+  overflow-x: auto; /* Enables horizontal scrolling if needed */
+  padding-bottom: 1rem; /* Prevents scrollbar overlap */
+  width: 100%;
+}
+
+/* Project Card Styling */
+.project-card {
+  background-color: var(--color-medium);
+  padding: var(--space-small);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  min-width: 250px;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Outside Work Grid - Single Row */
+.outside-work-grid {
+  display: grid;
+  grid-auto-flow: column; /* Forces items into a single row */
+  grid-auto-columns: minmax(250px, 1fr); /* Ensures proper sizing */
+  gap: var(--space-medium); /* Spaces between columns */
+  overflow-x: auto; /* Enables horizontal scrolling if needed */
+  padding-bottom: 1rem; /* Prevents scrollbar overlap */
+  width: 100%;
+}
+
+/* Outside Work Card */
+.outside-work-card {
+  background-color: var(--color-medium);
+  padding: var(--space-small);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  min-width: 250px;
+}
+
+.outside-work-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .projects-grid,
+  .outside-work-grid {
+    overflow-x: auto; /* Ensures horizontal scrolling for smaller screens */
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}s
+
+/* Contact */
+.contact p {
+  margin-top: var(--space-small);
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-small);
+  margin-top: var(--space-medium);
+}
+
+.contact-icons a {
+  font-size: 2rem;
+  color: var(--color-light);
+  transition: color 0.3s;
+}
+
+.contact-icons a:hover {
+  color: var(--color-medium);
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
 }
