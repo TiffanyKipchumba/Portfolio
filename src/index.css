@@ -1,5 +1,3 @@
-/* index.css */
-
 /* Global Box-sizing reset */
 *,
 *::before,
@@ -26,14 +24,14 @@
 body {
   background-color: var(--color-dark);
   color: var(--color-light);
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 }
 
 /* Hero Section */
 .hero {
-  position: absolute;
+  position: fixed; /* Keeps it in the background */
   top: 0;
   left: 0;
   width: 100%;
@@ -75,17 +73,18 @@ p {
   display: flex;
   justify-content: center;
   gap: var(--space-small);
-  margin-top: var(--space-light);
+  margin-top: var(--space-large);
 }
 
 .social-icons a {
   font-size: 2rem;
   color: var(--color-light);
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .social-icons a:hover {
   color: var(--color-medium);
+  transform: scale(1.1); /* Adds a slight scale effect on hover */
 }
 
 /* Section Styles */
@@ -94,16 +93,10 @@ p {
   text-align: center;
 }
 
-.about {
+.about, .story {
   font-size: 1rem;
   background-color: var(--color-dark);
-  color: #94DCD2;
-}
-
-.story {
-  font-size: 1rem;
-  color: #94DCD2;
-  background-color: var(--color-medium);
+  color: var(--color-light);
 }
 
 .skills {
@@ -134,45 +127,19 @@ p {
 }
 
 /* Updated CSS for Projects Grid and Outside Work Grid */
-
-/* Projects Grid - Single Row */
-.projects-grid {
+.projects-grid,
+.outside-work-grid {
   display: grid;
-  grid-auto-flow: column; /* Forces items into a single row */
-  grid-auto-columns: minmax(250px, 1fr); /* Ensures proper sizing */
-  gap: var(--space-medium); /* Spaces between columns */
-  overflow-x: auto; /* Enables horizontal scrolling if needed */
-  padding-bottom: 1rem; /* Prevents scrollbar overlap */
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(250px, 1fr);
+  gap: var(--space-medium);
+  overflow-x: auto;
+  padding-bottom: 1rem;
   width: 100%;
 }
 
 /* Project Card Styling */
-.project-card {
-  background-color: var(--color-medium);
-  padding: var(--space-small);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
-  min-width: 250px;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-}
-
-/* Outside Work Grid - Single Row */
-.outside-work-grid {
-  display: grid;
-  grid-auto-flow: column; /* Forces items into a single row */
-  grid-auto-columns: minmax(250px, 1fr); /* Ensures proper sizing */
-  gap: var(--space-medium); /* Spaces between columns */
-  overflow-x: auto; /* Enables horizontal scrolling if needed */
-  padding-bottom: 1rem; /* Prevents scrollbar overlap */
-  width: 100%;
-}
-
-/* Outside Work Card */
+.project-card,
 .outside-work-card {
   background-color: var(--color-medium);
   padding: var(--space-small);
@@ -180,9 +147,10 @@ p {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
-  min-width: 250px;
+  min-width: 270px; /* Increased min-width */
 }
 
+.project-card:hover,
 .outside-work-card:hover {
   transform: translateY(-10px);
 }
@@ -191,7 +159,8 @@ p {
 @media (max-width: 768px) {
   .projects-grid,
   .outside-work-grid {
-    overflow-x: auto; /* Ensures horizontal scrolling for smaller screens */
+    overflow-x: auto;
+    grid-template-columns: 1fr; /* Switch to a single column on smaller screens */
   }
 
   h1 {
@@ -205,7 +174,7 @@ p {
   p {
     font-size: 1rem;
   }
-}s
+}
 
 /* Contact */
 .contact p {
@@ -227,27 +196,4 @@ p {
 
 .contact-icons a:hover {
   color: var(--color-medium);
-}
-
-/* Media Queries for Mobile */
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
 }

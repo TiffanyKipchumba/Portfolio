@@ -1,3 +1,4 @@
+import './index.css';
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
@@ -16,25 +17,27 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app-container">
-      {/* Hero Image (Disappearing on Scroll) */}
+    <div>
+      {/* Hero Section */}
       <motion.div
         className="hero-image"
         style={{
-          backgroundImage: "url('/hero-image.jpg')",  // Place image in public folder
+          backgroundImage: "url('/hero-image.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "100vh",
+          width: "100%",
         }}
         initial={{ opacity: 1 }}
-        animate={{ opacity: 1 - scrollPosition / 300 }}  // Adjust for fade speed
+        animate={{ opacity: 1 - scrollPosition / 300 }}
         transition={{ duration: 0.3 }}
-      />
-
-      {/* Main Content */}
-      <div className="main-content">
-        <h1 className="name">Tiffany J Kipchumba</h1>
-        <h2 className="profession">Robotics and AI Engineer</h2>
-        <p className="bio">
-          I take on challenging problems to try and make the world a better place.
-        </p>
+      >
+        {/* Main Content */}
+        <div className="main-content">
+          <h1 className="name">Tiffany J Kipchumba</h1>
+          <h2 className="profession">Robotics and AI Engineer</h2>
+        </div>
 
         {/* Social Media Icons */}
         <div className="social-icons">
@@ -63,7 +66,7 @@ const App = () => {
             <FaEnvelope />
           </a>
         </div>
-      </div>
+      </motion.div>
 
       {/* About Section */}
       <div className="about-section">
@@ -93,27 +96,28 @@ const App = () => {
 
       {/* Projects Section - Horizontal Layout */}
       <div className="projects-section">
-  <h3 className="section-title">Projects</h3>
-  <div className="projects-grid">
-    <div className="project-card">Project 1</div>
-    <div className="project-card">Project 2</div>
-    <div className="project-card">Project 3</div>
-    <div className="project-card">Project 4</div>
-  </div>
-  <div className="view-projects">
-    <Link to="/projects">View All Projects</Link>
-  </div>
-</div>
+        <h3 className="section-title">Projects</h3>
+        <div className="projects-grid">
+          <div className="project-card">Project 1</div>
+          <div className="project-card">Project 2</div>
+          <div className="project-card">Project 3</div>
+          <div className="project-card">Project 4</div>
+        </div>
+        <div className="view-projects">
+          <Link to="/projects">View All Projects</Link>
+        </div>
+      </div>
 
-<div className="outside-work-section">
-  <h3 className="section-title">Outside Work</h3>
-  <div className="outside-work-grid">
-    <div className="outside-work-card">Hiking</div>
-    <div className="outside-work-card">Reading</div>
-    <div className="outside-work-card">Cooking</div>
-    <div className="outside-work-card">Gaming</div>
-  </div>
-</div>
+      {/* Outside Work Section */}
+      <div className="outside-work-section">
+        <h3 className="section-title">Outside Work</h3>
+        <div className="outside-work-grid">
+          <div className="outside-work-card">Hiking</div>
+          <div className="outside-work-card">Reading</div>
+          <div className="outside-work-card">Cooking</div>
+          <div className="outside-work-card">Gaming</div>
+        </div>
+      </div>
 
       {/* Contact Section */}
       <div className="contact-section">
@@ -141,4 +145,5 @@ const App = () => {
     </div>
   );
 };
+
 export default App;
